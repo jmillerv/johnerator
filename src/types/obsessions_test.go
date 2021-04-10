@@ -1,7 +1,6 @@
 package types
 
 import (
-	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -68,9 +67,6 @@ var obsessions = Obsessions{
 func TestGetObsessions(t *testing.T) {
 	obs := obsessions.GetObsessions()
 	assert.NotEmpty(t, obs.Easy)
-	fmt.Println(obs.Easy)
 	assert.NotEmpty(t, obs.Medium)
-	fmt.Println(obs.Medium)
 	assert.NotEmpty(t, obs.Hard)
-	fmt.Println(obs.Hard)
 }
