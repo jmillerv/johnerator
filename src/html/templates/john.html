@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>John Generator</title>
+    <meta name="description" content="Character Generator  for Everyone Is John">
+    <meta name="Jeremiah Miller" content="JohnGenerator">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <div>
+        <center>
+            <h4>
+                Here's Your John
+            </h4>
+        </center>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <h2>Name</h2>
+                    <h6><i>What you insist your name is: <strong>{{ .Name}}</strong></i></h6>
+                </div>
+                <h4>Skills</h4>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <p>{{ .Skills.First }}</p>
+                        <p>{{ .Skills.Second }}</p>
+                        {{ if .ThreeSkills }}
+
+                        <p>{{ .Skills.Third }}</p>
+                        {{ end }}
+                    </div>
+                </div>
+                <h4>Obsessions</h4>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <p><strong>Easy </strong>{{ .Obsessions.Easy }}</p>
+                        <p><strong>Medium </strong>{{ .Obsessions.Medium }}</p>
+                        <p><strong>Hard </strong>{{ .Obsessions.Hard }}</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+        <div>
+            <center>
+                <button class="btn waves-effect waves-light blue accent-1" type="submit" name="action">
+                    <a href="/" class="white-text">Try Again<i class="material-icons right">arrow_back</i></a>
+                </button>
+            </center>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
+
+
