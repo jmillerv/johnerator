@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"strconv"
 )
-const johnHtml = "html/templates/john.html"
+const characterHtml = "html/templates/character.html"
 var n types.Names
 var s types.Skills
 var o types.Obsessions
@@ -41,7 +41,7 @@ func characterHandler(w http.ResponseWriter, r *http.Request) {
 		skillCount, _ = strconv.Atoi(r.Form["skills"][0])
 	}
 	c := types.CreateNewCharacter(n,s,o, skillCount)
-	parsedTemplate, err := template.ParseFS(templates, johnHtml)
+	parsedTemplate, err := template.ParseFS(templates, characterHtml)
 	if err != nil {
 		log.Fatal("unable to parse ", err)
 	}
