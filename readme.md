@@ -3,9 +3,9 @@ Character generator for the game [Everyone Is John](https://img.4plebs.org/board
 
 # Roadmap 
 - [x] Generate a random voice 
-- [] Improved Character Sheet 
-- [] Interactive character sheet for player created characters
-- [] GM Tracker 
+- [ ] Improved Character Sheet 
+- [ ] Interactive character sheet for player created characters
+- [ ] GM Tracker 
 
 ## Contributing 
 I am accepting pull requests for additional John themed names, obsessions, and skills.
