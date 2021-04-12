@@ -31,13 +31,14 @@
     </div>
     <div>
         <form action="/character" method="post">
-            <p>
-                <label>
-                    <input type="checkbox" name="skills" value="3"/>
-                    <span>3 Skills</span>
-                </label>
-            </p>
-            <p style="color: red">Selecting 3 skills reduces your starting Willpower to 7</p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="skills" value="3"/>
+                        <span>3 Skills</span>
+                        <span style="color: red"> Note: Selecting 3 skills reduces your starting Willpower to 7</span>
+                    </label>
+                </p>
+<!--                <p style="color: red">Selecting 3 skills reduces your starting Willpower to 7</p>-->
             <div class="center">
                 <button class="btn waves-effect waves-light blue accent-1" type="submit" name="action">
                         Generate Your John<i class="material-icons right">send</i>
