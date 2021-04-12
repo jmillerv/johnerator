@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"time"
 )
+
 //Names contains a string array of all possible names
 type Names struct {
 	List []string `json:"names"`

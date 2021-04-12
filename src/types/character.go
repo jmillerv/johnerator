@@ -19,6 +19,7 @@ type CharacterObsessions struct {
 	Medium string
 	Hard   string
 }
+
 //CharacterSkills holds a given character's skills. First and Second are required Third is optional
 type CharacterSkills struct {
 	First  string

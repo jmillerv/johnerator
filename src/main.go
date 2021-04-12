@@ -10,7 +10,9 @@ import (
 	"net/http"
 	"strconv"
 )
+
 const characterHTML = "html/templates/character.html"
+
 var n types.Names
 var s types.Skills
 var o types.Obsessions
@@ -30,7 +32,6 @@ var obsJson []byte
 //go:embed assets/skills.json
 var skillsJSON []byte
 
-
 func characterHandler(w http.ResponseWriter, r *http.Request) {
 	var skillCount int
 	err := r.ParseForm()
@@ -40,7 +41,7 @@ func characterHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Form["skills"] != nil {
 		skillCount, _ = strconv.Atoi(r.Form["skills"][0])
 	}
-	c := types.CreateNewCharacter(n,s,o, skillCount)
+	c := types.CreateNewCharacter(n, s, o, skillCount)
 	parsedTemplate, err := template.ParseFS(templates, characterHTML)
 	if err != nil {
 		log.Fatal("unable to parse ", err)
@@ -55,7 +56,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 	_, _ = fmt.Fprintf(w, string(indexHTML))
 }
 
-
 func main() {
 	n = types.LoadNames(namesJSON)
 	s = types.LoadSkills(skillsJSON)
@@ -64,5 +64,5 @@ func main() {
 	http.HandleFunc("/", index)
 	// start server
 	log.Println("Listening on 8080")
-	log.Fatal(http.ListenAndServe(":8080",nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

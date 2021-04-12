@@ -5,7 +5,6 @@ import (
 	"testing"
 )
 
-
 var obsessions = Obsessions{
 	List: struct {
 		Easy   []string `json:"easy"`
@@ -61,7 +60,7 @@ var obsessions = Obsessions{
 			"Taking other people's pets",
 			"Winning awards",
 		},
-			}),
+	}),
 }
 
 func TestGetObsessions(t *testing.T) {
