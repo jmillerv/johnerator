@@ -1,4 +1,7 @@
 # John Generator 
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/225759254b72441e87aacc4176b2b0f1)](https://app.codacy.com/gh/jmillerv/johngenerator?utm_source=github.com&utm_medium=referral&utm_content=jmillerv/johngenerator&utm_campaign=Badge_Grade_Settings)
+
 Character generator for the game [Everyone Is John](https://img.4plebs.org/boards/tg/image/1377/34/1377343288798.pdf)
 
 ## Roadmap 
