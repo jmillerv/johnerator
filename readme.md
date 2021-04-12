@@ -1,16 +1,16 @@
 # John Generator 
 Character generator for the game [Everyone Is John](https://img.4plebs.org/boards/tg/image/1377/34/1377343288798.pdf)
 
-# Roadmap 
-- [x] Generate a random voice 
-- [ ] Improved Character Sheet 
-- [ ] Interactive character sheet for player created characters
-- [ ] GM Tracker 
-- [ ] FAQ
-- [ ] Submit Issues
-- [ ] Custom configs for personal hosting
-- [ ] Personal hosting documentation
-- [ ] docker-compose file
+## Roadmap 
+  - [x] Generate a random voice 
+  - [ ] Improved Character Sheet 
+  - [ ] Interactive character sheet for player created characters
+  - [ ] GM Tracker 
+  - [ ] FAQ
+  - [ ] Submit Issues
+  - [ ] Custom configs for personal hosting
+  - [ ] Personal hosting documentation
+  - [ ] docker-compose file
 
 ## Contributing 
 I am accepting pull requests for additional John themed names, obsessions, and skills.

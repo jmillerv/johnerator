@@ -2,7 +2,7 @@ package main
 
 import (
 	"embed"
-	_ "embed"
+	_ "embed" // required for go:embed
 	"fmt"
 	"github.com/johngenerator/src/types"
 	"html/template"
@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"strconv"
 )
-const characterHtml = "html/templates/character.html"
+const characterHTML = "html/templates/character.html"
 var n types.Names
 var s types.Skills
 var o types.Obsessions
@@ -22,13 +22,13 @@ var indexHTML []byte
 var templates embed.FS
 
 //go:embed assets/names.json
-var namesJson []byte
+var namesJSON []byte
 
 //go:embed assets/obsessions.json
 var obsJson []byte
 
 //go:embed assets/skills.json
-var skillsJson []byte
+var skillsJSON []byte
 
 
 func characterHandler(w http.ResponseWriter, r *http.Request) {
@@ -41,7 +41,7 @@ func characterHandler(w http.ResponseWriter, r *http.Request) {
 		skillCount, _ = strconv.Atoi(r.Form["skills"][0])
 	}
 	c := types.CreateNewCharacter(n,s,o, skillCount)
-	parsedTemplate, err := template.ParseFS(templates, characterHtml)
+	parsedTemplate, err := template.ParseFS(templates, characterHTML)
 	if err != nil {
 		log.Fatal("unable to parse ", err)
 	}
@@ -57,8 +57,8 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 
 func main() {
-	n = types.LoadNames(namesJson)
-	s = types.LoadSkills(skillsJson)
+	n = types.LoadNames(namesJSON)
+	s = types.LoadSkills(skillsJSON)
 	o = types.LoadObsessions(obsJson)
 	http.HandleFunc("/character", characterHandler)
 	http.HandleFunc("/", index)

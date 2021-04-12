@@ -1,19 +1,17 @@
 package types
 
 import (
-	_ "embed"
 	"encoding/json"
 	"math/rand"
 	"time"
 )
 
-
+//Skills contains a string array of all possible skills
 type Skills struct {
 	Names []string `json:"skills"`
 }
 
-
-
+//GetSkills returns a random selection of three skills in the form of a CharacterSkills struct
 func (s *Skills) GetSkills() CharacterSkills {
 	var skills CharacterSkills
 	rand.Seed(time.Now().Unix())
@@ -26,6 +24,7 @@ func (s *Skills) GetSkills() CharacterSkills {
 	return skills
 }
 
+//LoadSkills returns embedded json of skills into a struct
 func LoadSkills(b []byte) Skills {
 	s := new(Skills)
 	_ = json.Unmarshal(b, &s)

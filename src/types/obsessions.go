@@ -1,12 +1,12 @@
 package types
 
 import (
-	_ "embed"
 	"encoding/json"
 	"math/rand"
 	"time"
 )
 
+//Obsessions holds a list of all possible obsessions
 type Obsessions struct {
 	List struct {
 		Easy   []string `json:"easy"`
@@ -15,6 +15,7 @@ type Obsessions struct {
 	} `json:"obsessions"`
 }
 
+//GetObsessions returns an easy,medium, and hard obsession in the CharacterObsessions struct
 func (o *Obsessions) GetObsessions() CharacterObsessions {
 	rand.Seed(time.Now().Unix())
 	var obs CharacterObsessions
@@ -27,6 +28,7 @@ func (o *Obsessions) GetObsessions() CharacterObsessions {
 	return obs
 }
 
+//LoadObsessions returns embedded json of obsessions into a struct
 func LoadObsessions(b []byte) Obsessions {
 	o := new(Obsessions)
 	_ = json.Unmarshal(b, &o)
