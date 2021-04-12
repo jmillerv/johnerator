@@ -6,6 +6,11 @@ Character generator for the game [Everyone Is John](https://img.4plebs.org/board
 - [ ] Improved Character Sheet 
 - [ ] Interactive character sheet for player created characters
 - [ ] GM Tracker 
+- [ ] FAQ
+- [ ] Submit Issues
+- [ ] Custom configs for personal hosting
+- [ ] Personal hosting documentation
+- [ ] docker-compose file
 
 ## Contributing 
 I am accepting pull requests for additional John themed names, obsessions, and skills.
