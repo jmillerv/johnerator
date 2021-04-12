@@ -27,7 +27,7 @@ var templates embed.FS
 var namesJSON []byte
 
 //go:embed assets/obsessions.json
-var obsJson []byte
+var obsJSON []byte
 
 //go:embed assets/skills.json
 var skillsJSON []byte
@@ -59,7 +59,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 func main() {
 	n = types.LoadNames(namesJSON)
 	s = types.LoadSkills(skillsJSON)
-	o = types.LoadObsessions(obsJson)
+	o = types.LoadObsessions(obsJSON)
 	http.HandleFunc("/character", characterHandler)
 	http.HandleFunc("/", index)
 	// start server
