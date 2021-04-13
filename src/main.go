@@ -4,7 +4,7 @@ import (
 	"embed"
 	_ "embed" // required for go:embed
 	"fmt"
-	"github.com/johngenerator/src/types"
+	"github.com/johnerator/src/types"
 	"html/template"
 	"log"
 	"net/http"
