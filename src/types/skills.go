@@ -41,13 +41,17 @@ func LoadSkills(b []byte) Skills {
 	}{}
 	_ = json.Unmarshal(b, &s)
 	skills := &Skills{
-		Fantasy:     s.Fantasy,
-		Future:      s.Future,
-		Heroics:     s.Heroics,
-		Horror:      s.Horror,
-		Magic:       s.Magic,
-		Standard:    s.Standard,
-		Superpowers: s.Superpowers,
+		CallOfCthulhu:      s.CallOfCthulhu,
+		DeltaGreen:         s.DeltaGreen,
+		DungeonsAndDragons: s.DungeonsAndDragons,
+		Fantasy:            s.Fantasy,
+		Future:             s.Future,
+		Heroics:            s.Heroics,
+		Horror:             s.Horror,
+		Magic:              s.Magic,
+		Pathfinder:         s.Pathfinder,
+		Standard:           s.Standard,
+		Superpowers:        s.Superpowers,
 	}
 	return *skills
 }
