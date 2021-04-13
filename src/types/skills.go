@@ -8,13 +8,17 @@ import (
 
 //Skills contains a string array of all possible skills
 type Skills struct {
-	Fantasy     []string `json:"fantasy"`
-	Future      []string `json:"future"`
-	Heroics     []string `json:"heroics"`
-	Horror      []string `json:"horror"`
-	Magic       []string `json:"magic"`
-	Standard    []string `json:"standard"`
-	Superpowers []string `json:"superpowers"`
+	CallOfCthulhu      []string `json:"call_of_cthulhu"`
+	DeltaGreen         []string `json:"delta_green"`
+	DungeonsAndDragons []string `json:"dungeons_and_dragons"`
+	Fantasy            []string `json:"fantasy"`
+	Future             []string `json:"future"`
+	Heroics            []string `json:"heroics"`
+	Horror             []string `json:"horror"`
+	Magic              []string `json:"magic"`
+	Pathfinder         []string `json:"pathfinder"`
+	Standard           []string `json:"standard"`
+	Superpowers        []string `json:"superpowers"`
 }
 
 //GetSkills returns a random selection of three skills in the form of a CharacterSkills struct
