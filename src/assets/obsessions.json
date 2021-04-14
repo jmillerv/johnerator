@@ -1,6 +1,51 @@
 {
   "obsessions": {
     "themes": {
+      "call_of_cthulhu": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+      },
+      "delta_green": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+      },
+      "dungeons_and_dragons": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+      },
+      "fantasy": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+      },
+      "future": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+      },
+      "heroics": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+      },
+      "horror": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+      },
+      "magic": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+      },
+      "pathfinder": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+      },
       "standard":{
         "easy": [
           "Buying groceries",
@@ -54,6 +99,11 @@
           "Taking other people's pets",
           "Winning awards"
         ]
+      },
+      "superpowers": {
+        "easy": [],
+        "medium": [],
+        "hard": []
       }
     }
   }
