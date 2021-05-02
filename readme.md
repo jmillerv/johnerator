@@ -20,4 +20,4 @@ Use your best judgement, it should largely be safe for work, I don't want this t
 
 ## Support this project 
 
-You can support future development of this tool and others at [Buy Me A Coffee](https://buymeacoffee.com/jeremiah.dev)                
+You can support future development of this tool and more at [Buy Me A Coffee](https://buymeacoffee.com/jeremiah.dev)                
