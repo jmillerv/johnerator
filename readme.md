@@ -3,18 +3,17 @@
 Character generator for the game [Everyone Is John](https://img.4plebs.org/boards/tg/image/1377/34/1377343288798.pdf)
 
 ## Roadmap 
-- [x] Generate a random voice
-- [ ] Themes
-- [ ] Improved Generated Character Sheet
-- [ ] Blank character sheet to create characters from scratch
-- [ ] Print Characters
-- [ ] GM Tracker
-- [ ] FAQ
-- [ ] Submit Issues
-- [ ] Custom configs for personal hosting
-- [ ] Personal hosting documentation
-- [ ] docker-compose file
-
+- [x] Generate a random voice  
+- [ ] Themes  
+- [ ] Improved Generated Character Sheet  
+- [ ] Blank character sheet to create characters from scratch  
+- [ ] Print Characters  
+- [ ] GM Tracker  
+- [ ] FAQ  
+- [ ] Submit Issues  
+- [ ] Custom configs for personal hosting  
+- [ ] Personal hosting documentation  
+- [ ] docker-compose file  
 
 
 ## Contributing 
