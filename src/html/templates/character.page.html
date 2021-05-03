@@ -1,0 +1,61 @@
+{{ template "base" .}}
+{{ define "title"}}Random Character{{end}}
+{{ define "main"}}
+<div>
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <div class="card blue-grey lighten-1">
+                <div class="card-content white-text grey-text text-lighten-4">
+                    <div class="row">
+                        <span class="card-title">{{ .Name }}</span>
+                        <p>Willpower: <strong>{{ .Willpower}}</strong></p>
+                    </div>
+                    <div class="row">
+                        <h5>Skills</h5>
+                        <p>{{ .Skills.First }}</p>
+                        <p>{{ .Skills.Second }}</p>
+                        {{ if .ThreeSkills }}
+                        <p>{{ .Skills.Third }}</p>
+                        {{ end }}
+                    </div>
+                    <div class="row">
+                        <h5>Obsessions</h5>
+                        <table class="responsive-table">
+                            <thead>
+                            <tr>
+                                <th>Difficulty</th>
+                                <th>Obsession</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Easy</td>
+                                <td>{{ .Obsessions.Easy }}</td>
+                            </tr>
+                            <tr>
+                                <td>Medium</td>
+                                <td>{{ .Obsessions.Medium }}</td>
+                            </tr>
+                            <tr>
+                                <td>Hard</td>
+                                <td>{{ .Obsessions.Hard }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- TODO add card action for generating a pdf here-->
+            </div>
+        </div>
+    </div>
+    <div class="center">
+        <button class="btn waves-effect waves-light blue-grey lighten-1" type="submit" name="action">
+            <a href="/" class="white-text">Reconfigure<i class="material-icons right">settings</i></a>
+        </button>
+        <button class="btn waves-effect waves-light blue-grey lighten-1" type="submit" name="action">
+            <a href="/character" class="white-text">Another<i class="material-icons right">refresh</i></a>
+        </button>
+    </div>
+</div>
+
+{{ end }}
