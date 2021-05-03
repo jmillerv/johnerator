@@ -15,6 +15,8 @@ Character generator for the game [Everyone Is John](https://img.4plebs.org/board
 - [ ] Personal hosting documentation
 - [ ] docker-compose file
 
+
+
 ## Contributing 
 I am accepting pull requests for additional John themed names, obsessions, and skills.
 Use your best judgement, it should largely be safe for work, I don't want this to become the pits of the internet. 
