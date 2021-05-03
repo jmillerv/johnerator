@@ -16,7 +16,6 @@ const (
 	footerHTML = "html/templates/footer.partial.html"
 	homeHTML = "html/templates/home.page.html"
 	index = "/"
-	newCharacterHTML = "html/templates/new-character.html"
 )
 
 var n types.Names
@@ -50,14 +49,14 @@ func characterHandler(w http.ResponseWriter, r *http.Request) {
 		skillCount, _ = strconv.Atoi(r.Form["skills"][0])
 	}
 	c := types.CreateNewCharacter(n, s, o, skillCount)
-	templates, err := template.ParseFiles(files...)
+	ts, err := template.ParseFS(templates, files...)
 	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error", 500)
 		return
 	}
 
-	err = templates.Execute(w, c)
+	err = ts.Execute(w, c)
 	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error", 500)
@@ -74,14 +73,14 @@ func home(w http.ResponseWriter, r *http.Request) {
 		baseHTML,
 		footerHTML,
 	}
-	templates, err := template.ParseFiles(files...)
+	ts, err := template.ParseFS(templates, files...)
 	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error", 500)
 		return
 	}
 
-	err = templates.Execute(w, nil)
+	err = ts.Execute(w, nil)
 	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error", 500)
