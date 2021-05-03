@@ -5,12 +5,12 @@ Character generator for the game [Everyone Is John](https://img.4plebs.org/board
 ## Roadmap 
 - [x] Generate a random voice
 - [ ] Themes
-- [ ] Improved Generated Character Sheet
+- [x] Improve Randomly Generated Character Layout
 - [ ] Blank character sheet to create characters from scratch
 - [ ] Print Characters
 - [ ] GM Tracker
 - [ ] FAQ
-- [ ] Submit Issues
+- [x] Submit Issues
 - [ ] Custom configs for personal hosting
 - [ ] Personal hosting documentation
 - [ ] docker-compose file
