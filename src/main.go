@@ -3,7 +3,6 @@ package main
 import (
 	"embed"
 	_ "embed" // required for go:embed
-	"fmt"
 	"github.com/johnerator/src/types"
 	"html/template"
 	"log"
@@ -11,14 +10,18 @@ import (
 	"strconv"
 )
 
-const characterHTML = "html/templates/character.html"
+const (
+	baseHTML = "html/templates/base.layout.html"
+	characterHTML = "html/templates/character.page.html"
+	footerHTML = "html/templates/footer.partial.html"
+	homeHTML = "html/templates/home.page.html"
+	index = "/"
+	newCharacterHTML = "html/templates/new-character.html"
+)
 
 var n types.Names
 var s types.Skills
 var o types.Obsessions
-
-//go:embed html/index.html
-var indexHTML []byte
 
 //go:embed html/templates/*
 var templates embed.FS
@@ -34,6 +37,11 @@ var skillsJSON []byte
 
 func characterHandler(w http.ResponseWriter, r *http.Request) {
 	var skillCount int
+	files := []string{
+		characterHTML,
+		baseHTML,
+		footerHTML,
+	}
 	err := r.ParseForm()
 	if err != nil {
 		http.Error(w, "error creating character", 500)
@@ -42,18 +50,43 @@ func characterHandler(w http.ResponseWriter, r *http.Request) {
 		skillCount, _ = strconv.Atoi(r.Form["skills"][0])
 	}
 	c := types.CreateNewCharacter(n, s, o, skillCount)
-	parsedTemplate, err := template.ParseFS(templates, characterHTML)
+	templates, err := template.ParseFiles(files...)
 	if err != nil {
-		log.Fatal("unable to parse ", err)
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
 	}
-	err = parsedTemplate.Execute(w, c)
+
+	err = templates.Execute(w, c)
 	if err != nil {
-		log.Println("error creating john ", err)
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
 	}
 }
 
-func index(w http.ResponseWriter, r *http.Request) {
-	_, _ = fmt.Fprintf(w, string(indexHTML))
+func home(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != index {
+		http.NotFound(w, r)
+		return
+	}
+	files := []string{
+		homeHTML,
+		baseHTML,
+		footerHTML,
+	}
+	templates, err := template.ParseFiles(files...)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
+	}
+
+	err = templates.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+	}
+
 }
 
 func main() {
@@ -61,7 +94,7 @@ func main() {
 	s = types.LoadSkills(skillsJSON)
 	o = types.LoadObsessions(obsJSON)
 	http.HandleFunc("/character", characterHandler)
-	http.HandleFunc("/", index)
+	http.HandleFunc("/", home)
 	// start server
 	log.Println("Listening on 8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
