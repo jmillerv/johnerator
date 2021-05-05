@@ -6,8 +6,9 @@ Character generator for the game [Everyone Is John](https://img.4plebs.org/board
 - [x] Generate a random voice
 - [ ] Themes
 - [x] Improve Randomly Generated Character Layout
-- [ ] Blank character sheet to create characters from scratch
-- [ ] Print Characters
+- [x] Blank character sheet to create characters from scratch
+- [x] Interactive Character Sheet 
+- [ ] PDF Characters
 - [ ] GM Tracker
 - [ ] FAQ
 - [x] Submit Issues

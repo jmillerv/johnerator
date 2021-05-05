@@ -13,6 +13,8 @@ import (
 const (
 	baseHTML = "html/templates/base.layout.html"
 	characterHTML = "html/templates/character.page.html"
+	characterSheetPartial = "html/templates/characterSheet.partial.html"
+	characterSheetBase = "html/templates/characterSheetBase.layout.html"
 	footerHTML = "html/templates/footer.partial.html"
 	homeHTML = "html/templates/home.page.html"
 	index = "/"
@@ -24,6 +26,9 @@ var o types.Obsessions
 
 //go:embed html/templates/*
 var templates embed.FS
+
+//go:embed html/css/*
+var css embed.FS
 
 //go:embed assets/names.json
 var namesJSON []byte
@@ -63,6 +68,25 @@ func characterHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func blankCharacter(w http.ResponseWriter, r *http.Request){
+	files := []string{
+		characterSheetPartial,
+		characterSheetBase,
+	}
+	ts, err := template.ParseFS(templates, files...)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
+	}
+
+	err = ts.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+	}
+}
+
 func home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != index {
 		http.NotFound(w, r)
@@ -92,6 +116,7 @@ func main() {
 	n = types.LoadNames(namesJSON)
 	s = types.LoadSkills(skillsJSON)
 	o = types.LoadObsessions(obsJSON)
+	http.HandleFunc("/character-sheet",blankCharacter)
 	http.HandleFunc("/character", characterHandler)
 	http.HandleFunc("/", home)
 	// start server
