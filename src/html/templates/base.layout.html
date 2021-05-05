@@ -21,19 +21,33 @@
                         <a href="/" class="brand-logo" style="margin-top: 5px; margin-left: 5px;"><img src="https://storage.googleapis.com/johnerator/EVERYONE_IS_JOHN_face.png" width="50px" height="auto"></a>
                         <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="/character-sheet">Character Sheet</a></li>
-                            <li><a href="http://overlycommonname.github.io/john.html">Original Rules</a></li>
-                            <li><a href="https://www.drivethrurpg.com/product/271276/Everyone-is-John">Updated Rules</a></li>
-                            <li><a href="https://github.com/jmillerv/johnerator/issues">Report Issue</a></li>
+                            <li><a class="resource-trigger" href="#!" data-target="resourceDropdown">Resources<i class="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a class="contribute-trigger" href="#!" data-target="contributeDropdown">Contribute<i class="material-icons right">arrow_drop_down</i></a></li>
                         </ul>
                     </div>
                 </nav>
-
+            <!--Side Nav-->
             <ul class="sidenav" id="mobile-menu">
                 <li><a href="/character-sheet">Character Sheet</a></li>
                 <li><a href="http://overlycommonname.github.io/john.html">Original Rules</a></li>
                 <li><a href="https://www.drivethrurpg.com/product/271276/Everyone-is-John">Updated Rules</a></li>
+                <li><a href="https://github.com/jmillerv/johnerator#contributing">Github</a></li>
                 <li><a href="https://github.com/jmillerv/johnerator/issues">Report Issue</a></li>
+                <li><a href="https://www.buymeacoffee.com/jeremiah.dev">Donate</a></li>
+            </ul>
+            <!-- Contribute Dropdown -->
+            <ul id="contributeDropdown" class="dropdown-content">
+                <li><a href="https://github.com/jmillerv/johnerator#contributing">Github</a></li>
+                <li><a href="https://github.com/jmillerv/johnerator/issues">Report Issue</a></li>
+                <li><a href="https://www.buymeacoffee.com/jeremiah.dev">Donate</a></li>
+                <li class="divider"></li>
+            </ul>
+            <!-- Resources Dropdown -->
+            <ul id="resourceDropdown" class="dropdown-content">
+                <li><a href="/character-sheet">Character Sheet</a></li>
+                <li><a href="http://overlycommonname.github.io/john.html">Original Rules</a></li>
+                <li><a href="https://www.drivethrurpg.com/product/271276/Everyone-is-John">Updated Rules</a></li>
+                <li class="divider"></li>
             </ul>
             <main>
                 {{template "main" .}}
@@ -45,6 +59,16 @@
             document.addEventListener('DOMContentLoaded', function() {
                 var elems = document.querySelectorAll('.sidenav');
                 var instances = M.Sidenav.init(elems);
+                var contributeElems = document.querySelector('.contribute-trigger');
+                var resourceElems = document.querySelector('.resource-trigger');
+                var instance = M.Dropdown.init(contributeElems, {
+                    coverTrigger: false,
+                    constrainWidth: false,
+                });
+                var instance2 = M.Dropdown.init(resourceElems, {
+                    coverTrigger: false,
+                    constrainWidth: false,
+                });
             });
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
