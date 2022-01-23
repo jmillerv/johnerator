@@ -2,7 +2,7 @@
 # Johnerator 
 Character generator for the game [Everyone Is John](https://img.4plebs.org/boards/tg/image/1377/34/1377343288798.pdf)
 
-## Features and roadmap 
+## Features and Roadmap 
 - [x] Generate a random voice
 - [x] Improve Randomly Generated Character Layout
 - [x] Blank character sheet to create characters from scratch
