@@ -11,13 +11,13 @@ import (
 )
 
 const (
-	baseHTML = "html/templates/base.layout.html"
-	characterHTML = "html/templates/character.page.html"
+	baseHTML              = "html/templates/base.layout.html"
+	characterHTML         = "html/templates/character.page.html"
 	characterSheetPartial = "html/templates/characterSheet.partial.html"
-	characterSheetBase = "html/templates/characterSheetBase.layout.html"
-	footerHTML = "html/templates/footer.partial.html"
-	homeHTML = "html/templates/home.page.html"
-	index = "/"
+	characterSheetBase    = "html/templates/characterSheetBase.layout.html"
+	footerHTML            = "html/templates/footer.partial.html"
+	homeHTML              = "html/templates/home.page.html"
+	index                 = "/"
 )
 
 var n types.Names
@@ -26,9 +26,6 @@ var o types.Obsessions
 
 //go:embed html/templates/*
 var templates embed.FS
-
-//go:embed html/css/*
-var css embed.FS
 
 //go:embed assets/names.json
 var namesJSON []byte
@@ -68,7 +65,7 @@ func characterHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func blankCharacter(w http.ResponseWriter, r *http.Request){
+func blankCharacter(w http.ResponseWriter, r *http.Request) {
 	files := []string{
 		characterSheetPartial,
 		characterSheetBase,
@@ -116,7 +113,7 @@ func main() {
 	n = types.LoadNames(namesJSON)
 	s = types.LoadSkills(skillsJSON)
 	o = types.LoadObsessions(obsJSON)
-	http.HandleFunc("/character-sheet",blankCharacter)
+	http.HandleFunc("/character-sheet", blankCharacter)
 	http.HandleFunc("/character", characterHandler)
 	http.HandleFunc("/", home)
 	// start server
