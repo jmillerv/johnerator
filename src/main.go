@@ -117,6 +117,6 @@ func main() {
 	http.HandleFunc("/character", characterHandler)
 	http.HandleFunc("/", home)
 	// start server
-	log.Println("Listening on 8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Println("Listening on 8881")
+	log.Fatal(http.ListenAndServe(":8881", nil))
 }
