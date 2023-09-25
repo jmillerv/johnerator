@@ -1,0 +1,42 @@
+version: '3'
+
+tasks:
+  vars:
+    VERSION: 1.0
+  # Builds the johnerator binary
+  build:
+    cmds:
+      - task: lint
+      - go build -v -o johnerator .
+      - chmod +x johnerator
+
+  # Runs johnerator
+  run:
+    cmds:
+      - task: build
+      - ./johnerator
+
+  # Lints johnerator
+  lint:
+    cmds:
+      - golangci-lint run ./...
+
+  # Run the tests
+  test:
+    cmds:
+      - go test -v ./content -run Test
+
+  # build the docker container
+  docker-build:
+    cmds:
+      - docker build .
+
+  # docker-compose up
+  docker-run:
+    cmds:
+      - docker-compose up
+
+  # docker-stop
+  docker-stop:
+    cmds:
+      - docker-compose down

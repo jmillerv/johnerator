@@ -16,8 +16,7 @@ Character generator for the game [Everyone Is John](https://img.4plebs.org/board
 - [x] Submit Issues
 - [ ] Custom configs for personal hosting
 - [ ] Personal hosting documentation
-- [ ] docker-compose file
-- [ ] Desktop app
+- [x] docker-compose file
 
 
 ## Contributing 

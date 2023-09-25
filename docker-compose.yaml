@@ -1,0 +1,12 @@
+version: '3'
+services:
+  # go service
+  app:
+    container_name: johnerator_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8881:8881"
+    entrypoint: "./johnerator"

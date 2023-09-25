@@ -13,10 +13,10 @@ RUN go mod download
 
 # Build app
 COPY src .
-RUN CGO_ENABLED=0 GOOS=linux go build -o johngenerator *.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o johnerator *.go
 
 FROM alpine:latest as runner
 RUN apk add ca-certificates
-COPY --from=base /app/johngenerator .
+COPY --from=base /app/johnerator .
 
-ENTRYPOINT ["./johngenerator"]
+ENTRYPOINT ["./johnerator"]
