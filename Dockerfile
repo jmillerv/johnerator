@@ -18,5 +18,8 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o johnerator *.go
 FROM alpine:latest as runner
 RUN apk add ca-certificates
 COPY --from=base /app/johnerator .
+RUN adduser -D -g '' johnerator
+RUN chmod +x johnerator
+USER johnerator
 
 ENTRYPOINT ["./johnerator"]
