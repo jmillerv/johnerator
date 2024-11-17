@@ -29,7 +29,7 @@ tasks:
   # build the docker container
   docker-build:
     cmds:
-      - docker build .
+      - docker build --no-cache --secret id=idrsa,src=$HOME/.ssh/id_rsa --secret id=idrsapub,src=$HOME/.ssh/id_rsa.pub -t ghcr.io/mortarworkstudios/johnerator:v1.2 .
 
   # docker-compose up
   docker-run:
@@ -40,3 +40,8 @@ tasks:
   docker-stop:
     cmds:
       - docker-compose down
+
+  # Push to container registry
+  gcr:
+    cmds:
+      - docker push ghcr.io/mortarworkstudios/johnerator:v1.2
